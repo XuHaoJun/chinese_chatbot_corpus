@@ -1,6 +1,8 @@
 import codecs
 import os
 
+from pyhanlp import *
+
 from config import Config
 from util import *
 
@@ -22,7 +24,7 @@ def prepocess(raw_corpus_file_name, result_file_name):
         elif line.startswith(response_symbol):
             if post:
                 response = line.lstrip(response_symbol).strip()
-                result_file.write(post + "\t" + response + "\n")
+                result_file.write(HanLP.s2tw(post + "\t" + response + "\n"))
 
     raw_corpus_file.close()
     result_file.close()

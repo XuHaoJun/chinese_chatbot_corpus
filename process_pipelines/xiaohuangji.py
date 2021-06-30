@@ -1,6 +1,8 @@
 import codecs
 import os
 
+from pyhanlp import *
+
 from config import Config
 from util import *
 
@@ -29,7 +31,7 @@ def prepocess(raw_corpus_file_name, result_file_name):
         elif line.startswith(utterance_symbol):
             line = line[1:].strip()
             utterance = line.strip()
-            single_session.append(utterance)
+            single_session.append(HanLP.s2tw(utterance))
 
     print("avg session length", sum(session_lengths) / len(session_lengths))
     raw_corpus_file.close()

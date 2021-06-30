@@ -51,6 +51,16 @@ xiaohuangji（小黄鸡语料） | https://github.com/candlewill/Dialog_Corpus
 
 # 使用方法
 
+使用 [poetry](https://python-poetry.org) 安裝套件:
+
+`poetry install`
+
+安裝 Hanlp dataset:
+
+`poetry shell`
+
+`hanlp`
+
 下载语料
 ### 百度网盘
  https://pan.baidu.com/s/1szmNZQrwh9y994uO8DFL_A  提取码：f2ex
@@ -58,6 +68,9 @@ xiaohuangji（小黄鸡语料） | https://github.com/candlewill/Dialog_Corpus
 https://drive.google.com/file/d/1So-m83NdUHexfjJ912rQ4GItdLvnmJMD/view?usp=sharing
 
 将解压后的raw_chat_corpus文件夹放到当前目录下
+
+若 `./raw_chat_corpus/qingyun-11w/12万对话语料青云库.csv` 為亂碼，請手動更改。
+
 目录结构为
 ```
 raw_chat_corpus

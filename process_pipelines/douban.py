@@ -1,6 +1,8 @@
 import codecs
 import os
 
+from pyhanlp import *
+
 from config import Config
 from util import *
 
@@ -22,9 +24,9 @@ def prepocess(raw_corpus_file_name, result_file_name, single_result_file_name):
             label_and_utterances = line.strip().split("\t")
             utterances = label_and_utterances[1:]
             pairs = generate_single_pairs_from_multi_turn(utterances)
-            single_result_file.write("\t".join(pairs[0]) + "\n")
+            single_result_file.write(HanLP.s2tw("\t".join(pairs[0]) + "\n"))
             for pair in pairs:
-                result_file.write("\t".join(pair) + "\n")
+                result_file.write(HanLP.s2tw("\t".join(pair) + "\n"))
             session_lengths.append(len(utterances))
 
     print("avg session length", sum(session_lengths) / len(session_lengths))

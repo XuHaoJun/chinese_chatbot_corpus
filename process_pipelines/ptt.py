@@ -17,8 +17,6 @@ def prepocess(raw_corpus_file_name, result_file_name):
         if "沒有資料" in line:
             continue
 
-        line = tradition2simple(line)
-
         pair = line.strip().split()
 
         result_file.write("\t".join(pair) + "\n")

@@ -1,6 +1,8 @@
 import codecs
 import os
 
+from pyhanlp import *
+
 from config import Config
 from util import *
 
@@ -15,7 +17,8 @@ def prepocess(raw_corpus_file_name, result_file_name):
     single_session = []
     session_lengths = []
 
-    for index, line in enumerate(raw_corpus_file):
+    for index, l in enumerate(raw_corpus_file):
+        line = HanLP.s2tw(l)
         if index % 100000 == 0:
             print(raw_corpus_file_name, index)
         if line.startswith(start_end_symbol):

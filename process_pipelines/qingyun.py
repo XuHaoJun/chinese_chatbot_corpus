@@ -1,6 +1,8 @@
 import codecs
 import os
 
+from pyhanlp import *
+
 from config import Config
 from language.langconv import *
 from util import *
@@ -17,7 +19,7 @@ def prepocess(raw_corpus_file_name, result_file_name):
             continue
         pair = line.strip().split("|")
 
-        result_file.write("\t".join(pair) + "\n")
+        result_file.write(HanLP.s2tw("\t".join(pair) + "\n"))
 
     raw_corpus_file.close()
     result_file.close()

@@ -1,6 +1,8 @@
 import codecs
 import os
 
+from pyhanlp import *
+
 from config import Config
 from util import *
 
@@ -12,7 +14,7 @@ def prepocess(raw_corpus_file_name, result_file_name):
     for index, line in enumerate(raw_corpus_file):
         if index % 100000 == 0:
             print(raw_corpus_file_name, index)
-        pair = line.strip().split()
+        pair = HanLP.s2tw(line).strip().split()
         result_file.write("\t".join(pair) + "\n")
 
     raw_corpus_file.close()
